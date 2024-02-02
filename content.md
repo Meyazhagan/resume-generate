@@ -41,3 +41,12 @@
     - Created an e-commerce platform enabling online product purchases and checkout functionality.
     - Empowered sellers with the ability to create, edit, update, or delete products seamlessly.
     - Integrated Stripe for secure payment processing.
+
+## **Work Experience:**
+
+- Developed backend functionality across service, web, and data storage layers to ensure robust system performance.
+- Researched and prototyped new technologies to assess suitability for adoption within projects.
+- Integrated third-party solutions judiciously to enhance project capabilities and efficiency.
+- Designed, developed, and deployed applications leveraging platforms with iviva and Lucy to meet client requirements effectively.
+- Actively participated in development sprints with customers to ensure alignment with project goals and deliverables.
+- Created tooling for infrastructure management and provided technical support for sales and marketing initiatives.
