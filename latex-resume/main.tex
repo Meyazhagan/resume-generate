@@ -1,0 +1,155 @@
+% -------------- Resume ---------------
+\documentclass{resume}
+
+\begin{document}
+
+% --------- Contact Information -----------
+\introduction[
+    fullname={Meyazhagan C N},
+    email={meyazhagan.ofcl@gmail.com},
+    phone={+91 86672 83263},
+    linkedin={linkedin.com/in/meyazhagan-cn},
+    github={github.com/meyazhagan}
+]
+
+% --------- Open Source Contribution -----------
+\begin{resumeSection}{Open Source Contribution}
+    {\projectTitle[
+        project={Amplication},
+        projectUrl={github.com/amplication},
+        technology={Typescript, React, Nest.js, AST, Docker, GraphQL, GRPC, Postgres}
+    ]}
+    {\openSourceItem[
+        title={Enhancement: Generate dotenv keys sorted alphabetically},
+        pr={github.com/amplication/amplication/pull/7564},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item \textbf{Developed} a function to alphabetically sort environment keys.
+                \item Reduced conflicts during merge operations.
+            \end{itemize}
+        }
+    ]}
+    {\openSourceItem[
+        title={Feature: RabbitMQ Plugin},
+        pr={github.com/amplication/plugins/pull/187},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item \textbf{Developed} a RabbitMQ plugin to generate controllers and modules associated with RabbitMQ.
+                \item Empowers users to \textbf{effortlessly} produce and consume events using RabbitMQ.
+            \end{itemize}
+        }
+    ]}
+    {\projectTitle[
+        project={Meshery},
+        projectUrl={github.com/meshery},
+        technology={Go, Typescript, React, Kubernetes, Service mesh, Docker, SQLite}
+    ]}
+    {\openSourceItem[
+        title={Feature: Support tailing logs for Kubernetes},
+        pr={github.com/meshery/meshery/pull/7801},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item Implemented log tailing functionality for Kubernetes logs.
+                \item Enabled real-time log \textbf{monitoring} of Kubernetes deployments when the follow flag is enabled.
+                \item \textbf{Enhanced} user experience in monitoring deployment logs.
+            \end{itemize}
+        }
+    ]}
+    {\openSourceItem[
+        title={Feature: Database Summary Addition},
+        pr={github.com/meshery/meshery/pull/7686},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item Developed UI to display tables and its record counts in the reset page.
+                \item \textbf{Collaborated} with a peer programmer to enhance the UI.
+                \item Provided users with the ability to \textbf{monitor} database information.
+            \end{itemize}
+        }
+    ]}
+    {\projectTitle[
+        project={Datree},
+        projectUrl={github.com/datreeio},
+        technology={Go, Kubernetes, YAML}
+    ]}
+     {\openSourceItem[
+        title={Enhancement: add schema location and policy Configuration},
+        pr={github.com/datreeio/datree/pull/927},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item Introduced a feature to configure schema location and policy config into a \textbf{configuration file}.
+                \item \textbf{Enhanced} customization and user experience for CLI tool users.
+            \end{itemize}
+        }
+    ]}
+    {\openSourceItem[
+        title={Support: Exclude paths flag for datree test},
+        pr={github.com/datreeio/datree/pull/932},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+               \item \textbf{Implemented} exclude paths flag for \textit{datree test} command.
+\item Allowed users to specify specific paths or files to exclude from the testing process, \textbf{enhancing} tool flexibility.
+            \end{itemize}
+        }
+    ]}
+\end{resumeSection}
+
+% --------- Work Experience -----------
+\begin{resumeSection}{Work Experience}
+    {\projectTitle[
+        project={Iviva, Eutech Cybernetics, India},
+        projectUrl={www.iviva.com/},
+        technology={Jan 2022 - present}
+    ]}
+    {\experienceItem[
+        position={Software Developer},
+        technology={C\#, .NET, Typescript, Python, React, SCSS, AWS, SQL Server, Postgres, MongoDB},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item \textbf{Developed} backend functionality across service, web, and data storage layers to ensure robust system performance.
+                \item Researched and prototyped new technologies to assess suitability for \textbf{adoption} within projects.
+                \item \textbf{Integrated} third-party solutions judiciously to enhance project capabilities and efficiency.
+                \item Created \textbf{tooling} for infrastructure management and provided technical support for sales and marketing initiatives.
+            \end{itemize}
+        }
+    ]}
+\end{resumeSection}
+
+% --------- Personal Projects -----------
+\begin{resumeSection}{Personal Projects}
+    {\openSourceItem[
+        title={Ticketing System for Query Resolving},
+        pr={github.com/Meyazhagan/ticketing-system-backend},
+        description={
+            \begin{itemize}
+                \itemsep -6pt {}
+                \item \textbf{Developed} a query resolving platform tailored for mentors and students.
+                \item Implemented real-time status updates on queries and integrated a \textbf{real-time} chat feature.
+            \end{itemize}
+        }
+    ]}
+\end{resumeSection}
+
+% --------- Skills -----------
+\begin{resumeSection} {Skills} 
+    \skillSection[]
+\end{resumeSection}
+
+% --------- Education -----------
+% \vspace{-1.5em}
+\begin{resumeSection}{Education}
+    \educationItem[
+        college={PSG College of Arts \& Science},
+        duration={2016 - 2019},
+        degree={B. Sc Electronics},
+        cgpa={7.1}
+    ]
+\end{resumeSection}
+
+\end{document}
