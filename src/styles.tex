@@ -1,0 +1,79 @@
+% src/styles.tex - Custom styles and formatting
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Define colors
+\definecolor{headercolor}{RGB}{0, 102, 204}
+\definecolor{sectioncolor}{RGB}{51, 51, 51}
+\definecolor{textcolor}{RGB}{64, 64, 64}
+
+% Set default text color
+\color{textcolor}
+
+% Custom section formatting
+\titleformat{\section}
+  {\Large\bfseries\color{headercolor}}
+  {}
+  {0em}
+  {}[\titlerule]
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Custom subsection formatting (for job titles)
+\titleformat{\subsection}
+  {\large\bfseries\color{sectioncolor}}
+  {}
+  {0em}
+  {}
+
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% Custom subsubsection formatting (for companies)
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{sectioncolor}}
+  {}
+  {0em}
+  {}
+
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+% Custom list formatting
+\setlist[itemize]{leftmargin=*,nosep,before=\vspace{2pt},after=\vspace{6pt}}
+\setlist[enumerate]{leftmargin=*,nosep,before=\vspace{2pt},after=\vspace{6pt}}
+
+% Custom commands for consistent formatting
+\newcommand{\resumeheader}[5]{
+    \begin{center}
+        {\Huge\bfseries\color{headercolor}#1} \\[4pt]
+        {\large 
+            \faEnvelope\ \href{mailto:#2}{#2} $\bullet$ 
+            \faPhone\ #3 $\bullet$ 
+            \faLinkedin\ \href{https://linkedin.com/in/#4}{linkedin.com/in/#4} $\bullet$ 
+            \faGithub\ \href{https://github.com/#5}{github.com/#5}
+        }
+    \end{center}
+    \vspace{10pt}
+}
+
+\newcommand{\experienceitem}[4]{
+    \subsection{#1}
+    \subsubsection{#2 \hfill #3}
+    \textit{#4} \\[4pt]
+}
+
+\newcommand{\educationitem}[4]{
+    \subsection{#1}
+    \subsubsection{#2 \hfill #3}
+    \textit{#4} \\[4pt]
+}
+
+\newcommand{\projectitem}[3]{
+    \subsection{#1 \hfill #2}
+    \textit{#3} \\[4pt]
+}
+
+% Skills section formatting
+\newcommand{\skillsection}[2]{
+    \textbf{#1:} #2 \\[2pt]
+}
