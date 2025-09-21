@@ -1,0 +1,49 @@
+#!/bin/bash
+# build.sh - Build script for LaTeX resume/CV
+
+set -e
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <job-name>"
+    echo "Example: $0 software-engineer-abc"
+    exit 1
+fi
+
+JOB_NAME=$1
+JOB_DIR="$2/$1"
+
+if [ ! -d "$JOB_DIR" ]; then
+    echo "Error: Job directory '$JOB_DIR' does not exist"
+    echo "Available jobs:"
+    find jobs -maxdepth 1 -type d -not -path jobs | sed 's|jobs/|- |' | sort
+    exit 1
+fi
+
+# Check if resume.tex exists
+if [ ! -f "$JOB_DIR/resume.tex" ]; then
+    echo "Error: $JOB_DIR/resume.tex not found"
+    exit 1
+fi
+
+mkdir -p "build"
+mkdir -p "temp"
+
+echo "Building resume for job: $JOB_NAME"
+echo "Source: $JOB_DIR/resume.tex"
+echo "Output: build/resume_$JOB_NAME.pdf"
+
+# Run pdflatex
+pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -output-directory="temp" $JOB_DIR/resume.tex
+
+# Check if PDF was generated successfully
+if [ -f "temp/resume.pdf" ]; then
+    cp "temp/resume.pdf" "build/resume_$JOB_NAME.pdf"
+    rm -rf temp/**
+    echo "✅ Successfully built: build/resume.pdf"
+else
+    echo "❌ Build failed! Check the log file: build/job.log"
+    exit 1
+fi
+
+
+echo "Build complete!"
