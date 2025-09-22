@@ -1,79 +1,150 @@
-% src/styles.tex - Custom styles and formatting
+\NeedsTeXFormat{LaTeX2e}
 
-% Remove page numbers
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=black,
+}
+
+
+% Hyperref setup
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=blue,
+%     pdftitle={Resume},
+%     pdfauthor={Your Name},
+%     pdfsubject={Resume},
+%     pdfkeywords={resume, cv},
+%     bookmarksnumbered=true,
+%     bookmarksopen=true,
+%     bookmarksopenlevel=1,
+%     colorlinks=true,
+%     pdfstartview=Fit,
+%     pdfpagemode=UseOutlines,
+%     pdfpagelayout=TwoPageRight
+% }
+
+
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.42\textwidth}
+
+\renewcommand\familydefault{\sfdefault} 
+
 \pagestyle{empty}
 
-% Define colors
-\definecolor{headercolor}{RGB}{0, 102, 204}
-\definecolor{sectioncolor}{RGB}{51, 51, 51}
-\definecolor{textcolor}{RGB}{64, 64, 64}
+\def \separator {
+    \textbf{\Large\textbullet}
+}
 
-% Set default text color
-\color{textcolor}
+\newcommand{\email}[1]{\href{mailto:#1}{#1}}%
+\newcommand{\profilelink}[1]{\href{https://#1}{#1}}%
 
-% Custom section formatting
-\titleformat{\section}
-  {\Large\bfseries\color{headercolor}}
-  {}
-  {0em}
-  {}[\titlerule]
+\newcommand{\isA}[1]{
+    \expandafter\ifstrequal\expandafter{#1}{default}{}{a}
+}
 
-\titlespacing*{\section}{0pt}{12pt}{6pt}
+\newcommand\sectionTitle[1]{%
+    \begingroup
+        \large{\textbf{\MakeUppercase{#1}}}
+        \vspace{0.4em}
+        \hrule
+        \vspace{-0.3em}
+    \endgroup
+}%
 
-% Custom subsection formatting (for job titles)
-\titleformat{\subsection}
-  {\large\bfseries\color{sectioncolor}}
-  {}
-  {0em}
-  {}
+% ------------------------------------
 
-\titlespacing*{\subsection}{0pt}{8pt}{4pt}
-
-% Custom subsubsection formatting (for companies)
-\titleformat{\subsubsection}
-  {\normalsize\bfseries\color{sectioncolor}}
-  {}
-  {0em}
-  {}
-
-\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
-
-% Custom list formatting
-\setlist[itemize]{leftmargin=*,nosep,before=\vspace{2pt},after=\vspace{6pt}}
-\setlist[enumerate]{leftmargin=*,nosep,before=\vspace{2pt},after=\vspace{6pt}}
-
-% Custom commands for consistent formatting
-\newcommand{\resumeheader}[5]{
-    \begin{center}
-        {\Huge\bfseries\color{headercolor}#1} \\[4pt]
-        {\large 
-            \faEnvelope\ \href{mailto:#2}{#2} $\bullet$ 
-            \faPhone\ #3 $\bullet$ 
-            \faLinkedin\ \href{https://linkedin.com/in/#4}{linkedin.com/in/#4} $\bullet$ 
-            \faGithub\ \href{https://github.com/#5}{github.com/#5}
+% ------------- Header --------------
+\newcommand\printNameTitle[1]{%
+    \begingroup
+        \hfill{\MakeUppercase{\Huge\bfseries #1}}\hfill
+        \vspace{0.5em}
+        \break
+        {
+            \MakeUppercase{full-stack developer}\separator\MakeUppercase{Open source contributor}
         }
-    \end{center}
-    \vspace{10pt}
+        \break
+        \vspace{-0.5em}
+        \hrule
+        \vspace{-0.25em}
+    \endgroup
+}%
+
+\newkeycommand{\introduction}[
+    fullname,
+    email,
+    phone,
+    linkedin,
+    github
+]{%
+    \begin{center}%
+        \printNameTitle{\commandkey{fullname}}% Full name title
+        {
+        \hfill
+        \faIcon{envelope} \email{\commandkey{email}} \hfill
+        \faIcon{linkedin} \profilelink{\commandkey{linkedin}} \hfill
+        \faIcon{github} \profilelink{\commandkey{github}} \hfill
+        \faIcon{phone} \commandkey{phone} \hfill
+        }
+    \end{center}%
+}%
+
+
+\newenvironment{resumeSection} [1] {
+    \sectionTitle{#1}
 }
 
-\newcommand{\experienceitem}[4]{
-    \subsection{#1}
-    \subsubsection{#2 \hfill #3}
-    \textit{#4} \\[4pt]
+\newkeycommand{\openSourceItem} [
+    title,
+    pr,
+    description
+] {
+    \begingroup
+        \textbf{\commandkey{title}} \hfill \profilelink{\commandkey{pr}}
+        \break
+        \vspace{-2em}
+        \commandkey{description}
+        \vspace{-0.5em}
+    \endgroup
 }
 
-\newcommand{\educationitem}[4]{
-    \subsection{#1}
-    \subsubsection{#2 \hfill #3}
-    \textit{#4} \\[4pt]
+\newkeycommand{\experienceItem} [
+    position,
+    technology,
+    description
+] {
+    \begingroup
+        \textbf{\commandkey{position}} \hfill {\commandkey{technology}}
+        \break
+        \vspace{-2em}
+        \commandkey{description}
+        \vspace{-0.5em}
+    \endgroup
 }
 
-\newcommand{\projectitem}[3]{
-    \subsection{#1 \hfill #2}
-    \textit{#3} \\[4pt]
+\newkeycommand{\projectTitle}[
+    project,
+    projectUrl,
+    technology
+] {
+    \large{\textbf{\href{https://\commandkey{projectUrl}}{\commandkey{project}}}} \hfill 
+    \normalsize{\textsl{\commandkey{technology}}}
+    \break
 }
 
-% Skills section formatting
-\newcommand{\skillsection}[2]{
-    \textbf{#1:} #2 \\[2pt]
+\newkeycommand{\educationItem}[
+    college,
+    degree,
+    duration,
+    cgpa
+] {
+    \vspace{0.25em}
+    \textbf{\commandkey{degree}} \hspace*{2ex} \commandkey{college}\hspace*{2ex} \commandkey{cgpa} CGPA  \hfill   \commandkey{duration}
+    \break
+}
+
+\newcommand{\skill}[2]{
+    \textbf{#1} & #2 \\
 }

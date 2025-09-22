@@ -1,5 +1,8 @@
 % src/packages.tex - Package imports
-\usepackage[letterpaper,margin=0.75in]{geometry}
+\RequirePackage{etex}
+
+\usepackage[left=0.5in,top=0.4in,right=0.5in,bottom=0.4in]{geometry}
+\usepackage[parfill]{parskip}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -12,23 +15,10 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
-\usepackage{parskip}
-
-% Hyperref setup
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=blue,
-    pdftitle={Resume},
-    pdfauthor={Your Name},
-    pdfsubject={Resume},
-    pdfkeywords={resume, cv},
-    bookmarksnumbered=true,
-    bookmarksopen=true,
-    bookmarksopenlevel=1,
-    colorlinks=true,
-    pdfstartview=Fit,
-    pdfpagemode=UseOutlines,
-    pdfpagelayout=TwoPageRight
-}
+\usepackage{etoolbox}
+\usepackage{keycommand}
+\usepackage{xstring}
+\usepackage{multicol}
+\usepackage{supertabular}
+\usepackage[scaled]{helvet} 
+\usepackage[T1]{fontenc}

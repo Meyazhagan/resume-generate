@@ -1,0 +1,39 @@
+
+\documentclass[11pt,letterpaper]{article}
+
+\input{src/packages}
+\input{src/styles}
+
+\begin{document}
+
+\input{src/intro}
+
+\begin{resumeSection}{Open Source Contribution}
+    \input{src/opensource/amplication}
+    \input{src/opensource/meshery}
+    \input{src/opensource/datree}
+\end{resumeSection}
+
+\begin{resumeSection}{Work Experience}
+    \input{src/job/eutech}
+\end{resumeSection}
+
+\begin{resumeSection}{Personal Projects}
+    \input{src/project/ticketing_system}
+\end{resumeSection}
+
+\begin{resumeSection} {Skills} 
+    \begin{tabular}{m{5em} m{40em}}
+        \input{src/skill/language}
+        \input{src/skill/frontend}
+        \input{src/skill/backend}
+        \input{src/skill/database}
+        \input{src/skill/tools}
+    \end{tabular}
+\end{resumeSection}
+
+\begin{resumeSection}{Education}
+    \input{src/education/psg}
+\end{resumeSection}
+
+\end{document}
